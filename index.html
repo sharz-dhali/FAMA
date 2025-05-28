@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMA - Flight Crew Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Screen -->
+        <div class="login-container" id="loginScreen">
+            <div class="login-left">
+                <h1>FAMA</h1>
+                <h2>Welcome</h2>
+                <div class="role-selection">
+                    <button class="role-btn">
+                        <i class="fas fa-user"></i> Cabin Crew
+                    </button>
+                    <button class="role-btn">
+                        <i class="fas fa-plane"></i> Pilot
+                    </button>
+                    <button class="role-btn">
+                        <i class="fas fa-headset"></i> Operator
+                    </button>
+                </div>
+            </div>
+            <div class="login-right">
+                <div class="login-form">
+                    <h3>Log in</h3>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <button class="login-btn" id="loginBtn">Log in</button>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <div style="text-align: center; color: #666; font-size: 0.9rem;">
+                        <p>Telephone travel has consider a travel haul</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard -->
+        <div class="dashboard" id="dashboard">
+            <!-- Sidebar Navigation -->
+            <div class="sidebar">
+                <div class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>DASH</span>
+                </div>
+                <div class="nav-item" data-section="roster">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>ROSTER</span>
+                </div>
+                <div class="nav-item" data-section="calendar">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>CALENDAR</span>
+                </div>
+                <div class="nav-item" data-section="alerts">
+                    <i class="fas fa-bell"></i>
+                    <span>ALERTS</span>
+                </div>
+                <div class="nav-item" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span>PROFILE</span>
+                </div>
+            </div>
+            
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Top Bar -->
+                <div class="top-bar">
+                    <div class="app-name">FAMA</div>
+                    <div class="user-info">
+                        <div class="user-name">Fiona Lewis</div>
+                        <div class="time">10:53</div>
+                    </div>
+                </div>
+                
+                <!-- Content Sections -->
+                <div class="content-area">
+                    <!-- Dashboard Home -->
+                    <div class="content-section" id="dashboardSection">
+                        <h2 class="section-title">Dashboard</h2>
+                        <div class="welcome">Weekly Summary</div>
+                        
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <div class="stat-title">Total Duty Hours</div>
+                                <div class="stat-value">58 h 20 min</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-title">Total Flight Time</div>
+                                <div class="stat-value">27 h 46 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-placeholder">
+                            Duty Hours Visualization (Chart)
+                        </div>
+                    </div>
+                    
+                    <!-- Roster -->
+                    <div class="content-section" id="rosterSection" style="display: none;">
+                        <h2 class="section-title">Roster</h2>
+                        
+                        <table class="roster-table">
+                            <thead>
+                                <tr>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                    <th>Sunday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Turn 07:00-15:00</td>
+                                    <td>Decoration</td>
+                                    <td>Go</td>
+                                    <td>Turn 12:00-20:00</td>
+                                    <td>Decoration</td>
+                                    <td>Go</td>
+                                    <td>Off</td>
+                                </tr>
+                                <tr>
+                                    <td>Turn 10:00-18:00</td>
+                                    <td>Decoration</td>
+                                    <td>Go</td>
+                                    <td>Turn 08:00-16:00</td>
+                                    <td>Decoration</td>
+                                    <td>Go</td>
+                                    <td>Off</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Calendar -->
+                    <div class="content-section" id="calendarSection" style="display: none;">
+                        <h2 class="section-title">Calendar</h2>
+                        
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                                <div>Sun</div>
+                            </div>
+                            <div class="calendar-grid">
+                                <!-- Week 1 -->
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">1</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">2</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">3</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">4</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">5</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">6</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">7</div>
+                                </div>
+                                
+                                <!-- Week 2 -->
+                                <div class="calendar-day day-active">
+                                    <div class="day-number">8</div>
+                                    <div class="day-event">Active Duty</div>
+                                </div>
+                                <div class="calendar-day day-active">
+                                    <div class="day-number">9</div>
+                                    <div class="day-event">Active Duty</div>
+                                </div>
+                                <div class="calendar-day day-standby">
+                                    <div class="day-number">10</div>
+                                    <div class="day-event">Standby</div>
+                                </div>
+                                <div class="calendar-day day-standby">
+                                    <div class="day-number">11</div>
+                                    <div class="day-event">Standby</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">12</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">13</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">14</div>
+                                </div>
+                                
+                                <!-- Week 3 -->
+                                <div class="calendar-day">
+                                    <div class="day-number">15</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">16</div>
+                                </div>
+                                <div class="calendar-day day-active">
+                                    <div class="day-number">17</div>
+                                    <div class="day-event">Active Duty</div>
+                                </div>
+                                <div class="calendar-day day-active">
+                                    <div class="day-number">18</div>
+                                    <div class="day-event">Active Duty</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">19</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">20</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">21</div>
+                                </div>
+                                
+                                <!-- Week 4 -->
+                                <div class="calendar-day">
+                                    <div class="day-number">22</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">23</div>
+                                </div>
+                                <div class="calendar-day">
+                                    <div class="day-number">24</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">25</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">26</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">27</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">28</div>
+                                </div>
+                                
+                                <!-- Week 5 -->
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">29</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">30</div>
+                                </div>
+                                <div class="calendar-day day-off">
+                                    <div class="day-number">31</div>
+                                </div>
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alerts -->
+                    <div class="content-section" id="alertsSection" style="display: none;">
+                        <h2 class="section-title">Alerts</h2>
+                        
+                        <div class="alert-list">
+                            <div class="alert-item danger">
+                                <div class="alert-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-time">3:15 PM</div>
+                                    <div class="alert-text">Weather Alert: Thunderstorms expected from 15:00 to 18:00</div>
+                                </div>
+                                <button class="alert-dismiss">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="alert-item info">
+                                <div class="alert-icon">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-time">2:40 PM</div>
+                                    <div class="alert-text">Gate changed to B34 for flight FA-205</div>
+                                </div>
+                                <button class="alert-dismiss">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="alert-item">
+                                <div class="alert-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-time">1:03 PM</div>
+                                    <div class="alert-text">Departure time changed to 13:45 for flight FA-102</div>
+                                </div>
+                                <button class="alert-dismiss">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="alert-item">
+                                <div class="alert-icon">
+                                    <i class="fas fa-plane-departure"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-time">9:20 AM</div>
+                                    <div class="alert-text">Flight time reduced to 1h 15min for FA-307</div>
+                                </div>
+                                <button class="alert-dismiss">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile -->
+                    <div class="content-section" id="profileSection" style="display: none;">
+                        <h2 class="section-title">Profile</h2>
+                        
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Anna Johnson</h2>
+                                <div class="profile-position">Senior Cabin Crew · 7 years</div>
+                                <div class="profile-stats">
+                                    <div class="stat-badge">Training Level: Advanced</div>
+                                    <div class="stat-badge">Languages: English, Spanish</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-details">
+                            <div class="detail-card">
+                                <div class="detail-title">Duty Preferences</div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Preferred Haul</div>
+                                    <div class="toggle-container">
+                                        <div class="toggle-btn">Long</div>
+                                        <div class="toggle-btn active">Short</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <div class="detail-title">Schedule</div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Days of Active Duty</div>
+                                    <div class="detail-value">Monday, Friday</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Standby Duty</div>
+                                    <div class="detail-value">Tuesday (10:00 - 22:00)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
